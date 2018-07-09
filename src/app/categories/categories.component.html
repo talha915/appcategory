@@ -1,7 +1,7 @@
-<input type="text" name="inputcategory" #newData>
+<!-- <input type="text" name="inputcategory" #newData>
 <button (click)="addCategory(newData.value)">
   Add Category
-</button>
+</button> -->
 <table>
   <tr *ngFor="let data of Addcategory">
     <td *ngIf="data.name=='Clothes'">
@@ -77,14 +77,35 @@
     </div>
 
   </div>
-  <div class="col-md-6">
-    <h3 data-toggle="collapse" data-target="#demo1">
-      Asscessories
-    </h3>
-    <div id="demo1" class="collapse">
-      <div *ngFor="let asscess of Addasscessories">
-        {{asscess.name}}
+  <div class="panel-group col-md-6" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Asscessories</a>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse in">
+        <div class="panel-body">
+          <div *ngFor="let asscess of Addasscessories">
+            {{asscess.name}}
+          </div>
+        </div>
       </div>
     </div>
+
   </div>
+  <!-- <div class="col-md-6 panel-group" id="accordion">
+    <div class="panel panel-default">
+      <h3 data-toggle="collapse" data-target="#demo1" data-parent="#accordion">
+        Asscessories
+      </h3>
+      <div id="demo1" class="panel-collapse collapse">
+        <div class="panel-body">Panel Body</div>
+        <div class="panel-footer">Panel Footer</div>
+        <div *ngFor="let asscess of Addasscessories">
+          {{asscess.name}}
+        </div>
+      </div>
+    </div>
+  </div> -->
 </div>

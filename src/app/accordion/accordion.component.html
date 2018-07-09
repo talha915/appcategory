@@ -1,0 +1,16 @@
+<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+  <ngb-panel id="toggle-1" title="Clothes">
+    <ng-template ngbPanelContent>
+      <div *ngFor="let cloth of Clothes">
+        {{cloth.name}}
+      </div>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="toggle-2" title="Asscessories">
+    <ng-template ngbPanelContent>
+      <div *ngFor="let asscess of Asscessories">
+        {{asscess.name}}
+      </div>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>

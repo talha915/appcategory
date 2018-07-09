@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MyservicesService } from '../myservices.service';
 
 @Component({
   selector: 'app-categories',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private myservice: MyservicesService) { }
 
   ngOnInit() {
     console.log("Categories", this.categories);
@@ -42,7 +43,10 @@ export class CategoriesComponent implements OnInit {
       name: newClothes
     };
     this.clothes.push(newData1);
+    
     console.log("Clothes", this.clothes);
+    // debugger;
+    this.myservice.setClothes(this.clothes);
   }
 
   asscessories = [
@@ -58,5 +62,6 @@ export class CategoriesComponent implements OnInit {
     };
     this.asscessories.push(newData2);
     console.log("Asscess", this.asscessories);
+    this.myservice.setAsscessories(this.asscessories);
   }
 }

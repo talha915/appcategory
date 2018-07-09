@@ -1,18 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { CategoriesComponent } from './categories/categories.component';
-import { AsscessoriesComponent } from './asscessories/asscessories.component';
+import { AccordionComponent } from './accordion/accordion.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CategoriesComponent,
-    AsscessoriesComponent
+    AccordionComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

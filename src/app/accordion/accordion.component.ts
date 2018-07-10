@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MyservicesService } from '../myservices.service';
 import { Subscription } from 'rxjs';
 import { DatepickComponent } from '../datepick/datepick.component';
-
+import * as moment from 'moment';
 @Component({
   selector: 'app-accordion',
   templateUrl: './accordion.component.html',
@@ -14,7 +14,7 @@ export class AccordionComponent implements OnInit {
 	settings = {
 		bigBanner: false,
 		timePicker: false,
-		format: 'MM-dd-yyyy',
+		format: 'dd-MM-yyyy',
 		defaultOpen: false
 	}
   
@@ -52,14 +52,16 @@ export class AccordionComponent implements OnInit {
   clothes = [
     {
       name: 'Shirts',
-      date: 'Tue Jul 10 2018 17:33:36 GMT+0500 (Pakistan Standard Time)'
+      date: '10/7/2018'
     }
   ];
   Addclothes: Array <any> = this.clothes;
   addclothes(newClothes, newDate){
+    console.log('newDate', newDate.getDate());
     console.log("Clothes", this.clothes);
+    newDate = moment(newDate, "DD-MM-YYYY").format('DD/MM/YYYY')
     var newData1 = {
-      name: newClothes,
+      name: newClothes,   
       date: newDate
     };
     
@@ -74,12 +76,13 @@ export class AccordionComponent implements OnInit {
   asscessories = [
     {
       name: 'Mobile',
-      date: 'Tue Jul 10 2018 17:33:36 GMT+0500 (Pakistan Standard Time)'
+      date: '10/7/2018'
     }
   ];
   Addasscessories: Array <any> = this.asscessories;
   addAsscessories(newAsscess,newDate){
     console.log("Asscess", this.asscessories);
+    newDate = moment(newDate, "DD-MM-YYYY").format('DD/MM/YYYY')
     var newData2 = {
       name: newAsscess,
       date: newDate

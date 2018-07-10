@@ -1,14 +1,21 @@
 <div class="row">
   <div class="col-md-12" style="background-color: lightgreen">
     <!-- <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Clothes</button> -->
-    <h4 data-toggle="collapse" data-target="#demo" >
-      <p style="float: center">Clothes 
-          <button type="button" class="btn btn-primary" style="float: right" data-toggle="modal" data-target="#myModal">Add Product</button>
+    <h4 data-toggle="collapse" data-target="#demo">
+      <p style="float: center">Clothes
+        <button type="button" class="btn btn-primary" style="float: right" data-toggle="modal" data-target="#myModal">Add Product</button>
       </p>
     </h4>
     <div id="demo" class="collapse">
       <div *ngFor="let clothes of clothes" class="bodyStyle">
-        {{clothes.name}}
+        <b style="float: left">
+            <!-- Last updated: {{reqDate}}  -->
+            Last updated: {{clothes.date}}
+            <!-- <time>{{myDate | amCalendar:nextDay }}</time> -->
+        </b>
+        <b style="text-align: center; margin-right: 350px">
+          {{clothes.name}}
+        </b>
       </div>
     </div>
     <div class="modal fade" id="myModal" role="dialog">
@@ -20,10 +27,12 @@
             </h5>
           </div>
           <div class="modal-body">
-            <input type="text" name="inputcategory" #newData1>
-            <button (click)="addclothes(newData1.value)" type="button" class="btn btn-info btn-md" data-dismiss="modal">
-              Add Clothes
-            </button>
+            <input type="text" name="inputcategory" #newData1name>
+            <angular2-date-picker [(ngModel)]="date" [settings]="settings" >
+            </angular2-date-picker>
+            <button (click)="addclothes(newData1name.value, date)" type="button" class="btn btn-info btn-md" data-dismiss="modal">
+              Add Clothes 
+            </button> 
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -35,10 +44,11 @@
 
 
 <div class="panel-group col-md-12" id="accordion" style="background-color: yellow">
+  
   <div class="panel panel-primary" >
     <div class="panel-heading" >
       <h4 class="panel-title">
-        <p data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+        <p data-toggle="collapse" data-parent="#accordion" href="#collapseOne" >
           Asscessories
           <button type="button" class="btn btn-primary" style="float: right" data-toggle="modal" data-target="#myModal1">
             Add Product
@@ -49,7 +59,14 @@
     <div id="collapseOne" class="panel-collapse collapse in">
       <div class="panel-body" >
         <div *ngFor="let asscess of asscessories" class="bodyStyle">
-          {{asscess.name}}
+          <b style="float: left">
+            <!-- Last updated: {{reqDate}} -->
+            Last updated: {{asscess.date}}
+            <!-- <time>{{myDate | amCalendar:nextDay }} {{nextDay}}</time> -->
+          </b>
+          <b style="text-align: center; margin-right: 350px">
+            {{asscess.name}}
+          </b>
         </div>
       </div>
     </div>
@@ -64,7 +81,9 @@
           </div>
           <div class="modal-body">
             <input type="text" name="inputcategory" #newData2>
-            <button (click)="addAsscessories(newData2.value)" type="button" class="btn btn-info btn-md" data-dismiss="modal">
+            <angular2-date-picker [(ngModel)]="date" [settings]="settings">
+            </angular2-date-picker>
+            <button (click)="addAsscessories(newData2.value, date)" type="button" class="btn btn-info btn-md" data-dismiss="modal">
               Add Asscessories
             </button>
           </div>
@@ -74,7 +93,9 @@
         </div>
       </div>
     </div>
+
   </div>
+
 </div>
 
 

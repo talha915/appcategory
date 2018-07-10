@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MyservicesService } from '../myservices.service';
-
+import { AccordionComponent } from '../accordion/accordion.component';
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',

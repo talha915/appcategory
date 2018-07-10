@@ -1,0 +1,26 @@
+.accordion{
+    background-color: yellow;
+}
+
+.accord1{
+    background-color: green;
+}
+
+h5{
+    background-color: green;
+}
+
+p{
+    cursor: pointer;
+    padding-top: 15px;
+}
+
+.bodyStyle{
+    background-color: lightblue;
+    border-bottom: 1px solid grey;
+}
+
+a{
+    cursor: pointer;
+    padding-top: 15px;
+}

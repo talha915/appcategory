@@ -2,12 +2,17 @@
 <button (click)="addCategory(newData.value)">
   Add Category
 </button> -->
-<table>
+<!-- <table>
   <tr *ngFor="let data of Addcategory">
     <td *ngIf="data.name=='Clothes'">
-      <h3 data-toggle="modal" data-target="#myModal">
-        {{data.name}}
-      </h3>
+      <span>
+        <h3>
+          {{data.name}}    
+        </h3>
+      </span>
+    </td>
+    <td *ngIf="data.name=='Clothes'">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add Products</button>
     </td>
     <div class="modal fade" id="myModal" role="dialog">
       <div class="modal-dialog modal-sm">
@@ -19,7 +24,7 @@
           </div>
           <div class="modal-body">
             <input type="text" name="inputcategory" #newData1>
-            <button (click)="addclothes(newData1.value)" type="button" class="btn btn-info btn-md">
+            <button (click)="addclothes(newData1.value)" type="button" class="btn btn-info btn-md" data-dismiss="modal">
               Add Clothes
             </button>
           </div>
@@ -30,21 +35,26 @@
       </div>
     </div>
     <td *ngIf="data.name=='Asscessories'">
-      <h3 data-toggle="modal" data-target="#myModal1">
-        {{data.name}}
-      </h3>
+      <span>
+        <h3 >
+          {{data.name}}
+        </h3>
+      </span>    
+    </td>
+    <td *ngIf="data.name=='Asscessories'">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Add Products</button>
     </td>
     <div class="modal fade" id="myModal1" role="dialog">
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
           <div class="modal-header">
             <h5>
-              Please Add The Cloth Item
+              Please Add The Asscessories Item
             </h5>
           </div>
           <div class="modal-body">
             <input type="text" name="inputcategory" #newData2>
-            <button (click)="addAsscessories(newData2.value)" type="button" class="btn btn-info btn-md">
+            <button (click)="addAsscessories(newData2.value)" type="button" class="btn btn-info btn-md" data-dismiss="modal">
               Add Asscessories
             </button>
           </div>
@@ -55,22 +65,21 @@
       </div>
     </div>
   </tr>
-  <!-- <td *ngIf="data.name=='Asscessories'">
+   <td *ngIf="data.name=='Asscessories'">
     <input type="text" name="inputcategory" #newData2>
     <button (click)="addAsscessories(newData2.value)">
       Add Asscessories
     </button>
-  </td> -->
-</table>
+  </td> 
+</table> -->
 
 
-<div class="row">
-  <div class="col-md-6">
-    <!-- <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Clothes</button> -->
+<!-- <div class="row">
+  <div class="col-md-6" style="background-color: green">
     <h3 data-toggle="collapse" data-target="#demo">
       Clothes
     </h3>
-    <div id="demo" class="collapse">
+    <div id="demo" class="collapse" style="background-color: blue">
       <div *ngFor="let clothes of Addclothes">
         {{clothes.name}}
       </div>
@@ -78,8 +87,8 @@
 
   </div>
   <div class="panel-group col-md-6" id="accordion">
-    <div class="panel panel-default">
-      <div class="panel-heading">
+    <div class="panel panel-primary">
+      <div class="panel-heading" style="background-color: yellow">
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Asscessories</a>
         </h4>
@@ -94,7 +103,9 @@
     </div>
 
   </div>
-  <!-- <div class="col-md-6 panel-group" id="accordion">
+
+</div> -->
+<!-- <div class="col-md-6 panel-group" id="accordion">
     <div class="panel panel-default">
       <h3 data-toggle="collapse" data-target="#demo1" data-parent="#accordion">
         Asscessories
@@ -108,4 +119,5 @@
       </div>
     </div>
   </div> -->
-</div>
+
+<app-accordion></app-accordion>

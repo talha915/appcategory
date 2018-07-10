@@ -1,6 +1,87 @@
-<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-  <ngb-panel id="toggle-1" title="Clothes">
-    <ng-template ngbPanelContent>
+<div class="row">
+  <div class="col-md-12" style="background-color: lightgreen">
+    <!-- <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Clothes</button> -->
+    <h4 data-toggle="collapse" data-target="#demo" >
+      <p style="float: center">Clothes 
+          <button type="button" class="btn btn-primary" style="float: right" data-toggle="modal" data-target="#myModal">Add Product</button>
+      </p>
+    </h4>
+    <div id="demo" class="collapse">
+      <div *ngFor="let clothes of clothes" class="bodyStyle">
+        {{clothes.name}}
+      </div>
+    </div>
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5>
+              Please Add The Cloth Item
+            </h5>
+          </div>
+          <div class="modal-body">
+            <input type="text" name="inputcategory" #newData1>
+            <button (click)="addclothes(newData1.value)" type="button" class="btn btn-info btn-md" data-dismiss="modal">
+              Add Clothes
+            </button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<div class="panel-group col-md-12" id="accordion" style="background-color: yellow">
+  <div class="panel panel-primary" >
+    <div class="panel-heading" >
+      <h4 class="panel-title">
+        <p data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Asscessories
+          <button type="button" class="btn btn-primary" style="float: right" data-toggle="modal" data-target="#myModal1">
+            Add Product
+          </button>
+        </p>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body" >
+        <div *ngFor="let asscess of asscessories" class="bodyStyle">
+          {{asscess.name}}
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="myModal1" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5>
+              Please Add The Asscessories Item
+            </h5>
+          </div>
+          <div class="modal-body">
+            <input type="text" name="inputcategory" #newData2>
+            <button (click)="addAsscessories(newData2.value)" type="button" class="btn btn-info btn-md" data-dismiss="modal">
+              Add Asscessories
+            </button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+  <ngb-panel id="toggle-1" class="accord1" title="Clothes">
+    <ng-template ngbPanelContent class="header" style="background-color: yellow">
       <div *ngFor="let cloth of Clothes">
         {{cloth.name}}
       </div>
@@ -13,4 +94,4 @@
       </div>
     </ng-template>
   </ngb-panel>
-</ngb-accordion>
+</ngb-accordion> -->

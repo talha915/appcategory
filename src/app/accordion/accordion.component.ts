@@ -16,6 +16,7 @@ export class AccordionComponent implements OnInit {
       this.message = message;
       this.Clothes = this.message.text;
       console.log("message",this.message.text)
+      console.log("this.CLothes", this.message.text)
     });
     console.log("Subscription", this.subscription)
 
@@ -25,6 +26,42 @@ export class AccordionComponent implements OnInit {
     });
   }
 
+
+  clothes = [
+    {
+      name: 'Shirts'
+    }
+  ];
+  Addclothes: Array <any> = this.clothes;
+  addclothes(newClothes){
+    console.log("Clothes", this.clothes);
+    var newData1 = {
+      name: newClothes
+    };
+    this.clothes.push(newData1);
+    
+    console.log("Clothes", this.clothes);
+    // debugger;
+    this.myservice.setClothes(this.clothes);
+  }
+
+
+  asscessories = [
+    {
+      name: 'Mobile'
+    }
+  ];
+  Addasscessories: Array <any> = this.asscessories;
+  addAsscessories(newAsscess){
+    console.log("Asscess", this.asscessories);
+    var newData2 = {
+      name: newAsscess
+    };
+    this.asscessories.push(newData2);
+    console.log("Asscess", this.asscessories);
+    this.myservice.setAsscessories(this.asscessories);
+  }
+  
   ngOnInit() {
    // const data = this.myservice.getClothes();
    // console.log("X", data);

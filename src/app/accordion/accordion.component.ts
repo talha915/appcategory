@@ -25,6 +25,8 @@ export class AccordionComponent implements OnInit {
   Clothes: Array<any>;
   reqDate: any;
   Asscessories: Array<any>;
+  startDate: any;
+  endDate: any;
 
   constructor(private myservice: MyservicesService) { 
     // this.nextDay = new Date();
@@ -90,6 +92,21 @@ export class AccordionComponent implements OnInit {
     this.asscessories.push(newData2);
     console.log("Asscess", this.asscessories);
     this.myservice.setAsscessories(this.asscessories);
+  }
+
+
+  startingDate(date){
+    console.log("Working");
+    console.log("Starting Date is: ", date);
+    this.startDate = moment(date).format('DD/MM/YYYY');
+    console.log("Changed Start Date: ", this.startDate);
+  }
+
+  endingDate(date){
+    console.log("Working");
+    console.log("Ending Date is: ", date);
+    this.endDate = moment(date).format('DD/MM/YYYY');
+    console.log("Changed End Date: ", this.endDate);
   }
 
   ngOnInit() {

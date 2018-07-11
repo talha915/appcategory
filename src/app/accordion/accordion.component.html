@@ -1,4 +1,16 @@
-<div class="row">
+<div class="row" style="margin-left: 20px;">
+    <p style="padding-top: 5px; margin-right: 5px">Starting Date:</p>
+    <angular2-date-picker (onDateSelect)="startingDate($event)"  [(ngModel)]="date1" [settings]="settings">
+
+    </angular2-date-picker>
+    <p style="padding-top: 5px; margin-right: 5px; margin-left: 10px">Ending Date:</p>
+    <angular2-date-picker (onDateSelect)="endingDate($event)" [(ngModel)]="date2" [settings]="settings">
+
+    </angular2-date-picker>    
+</div>
+
+
+<div class="row">    
   <div class="col-md-12" style="background-color: lightgreen">
     <!-- <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Clothes</button> -->
     <h4 data-toggle="collapse" data-target="#demo">
@@ -8,14 +20,17 @@
     </h4>
     <div id="demo" class="collapse">
       <div *ngFor="let clothes of clothes" class="bodyStyle">
-        <b style="float: left">
-            <!-- Last updated: {{reqDate}}  -->
-            Last updated: {{clothes.date}}
-            <!-- <time>{{myDate | amCalendar:nextDay }}</time> -->
-        </b>
-        <b style="text-align: center; margin-right: 350px">
-          {{clothes.name}}
-        </b>
+        <span *ngIf="clothes.date > startDate && clothes.date < endDate">
+            <b style="float: left">
+                <!-- Last updated: {{reqDate}}  -->
+                Last updated: {{clothes.date}}
+                <!-- <time>{{myDate | amCalendar:nextDay }}</time> -->
+            </b>
+            <b style="text-align: center; margin-right: 350px">
+              {{clothes.name}}
+            </b>
+        </span>
+        
       </div>
     </div>
     <div class="modal fade" id="myModal" role="dialog">
@@ -59,14 +74,16 @@
     <div id="collapseOne" class="panel-collapse collapse in">
       <div class="panel-body" >
         <div *ngFor="let asscess of asscessories" class="bodyStyle">
-          <b style="float: left">
-            <!-- Last updated: {{reqDate}} -->
-            Last updated: {{asscess.date}}
-            <!-- <time>{{myDate | amCalendar:nextDay }} {{nextDay}}</time> -->
-          </b>
-          <b style="text-align: center; margin-right: 350px">
-            {{asscess.name}}
-          </b>
+          <span *ngIf="asscess.date > startDate && asscess.date < endDate ">
+            <b style="float: left">
+              <!-- Last updated: {{reqDate}} -->
+              Last updated: {{asscess.date}}
+              <!-- <time>{{myDate | amCalendar:nextDay }} {{nextDay}}</time> -->
+            </b>
+            <b style="text-align: center; margin-right: 350px">
+              {{asscess.name}}
+            </b>
+          </span>
         </div>
       </div>
     </div>

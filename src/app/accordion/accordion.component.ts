@@ -52,19 +52,19 @@ export class AccordionComponent implements OnInit {
   clothes = [
     {
       name: 'Shirts',
-      date: '10/7/2018'
+      date: '10/07/2018'
     }
   ];
   Addclothes: Array <any> = this.clothes;
   addclothes(newClothes, newDate){
-    console.log('newDate', newDate.getDate());
+    // console.log('newDate', newDate.getDate());
     console.log("Clothes", this.clothes);
-    newDate = moment(newDate, "DD-MM-YYYY").format('DD/MM/YYYY')
+    newDate = moment(newDate).format('DD/MM/YYYY')
+    console.log("New Date", newDate)
     var newData1 = {
       name: newClothes,   
       date: newDate
     };
-    
     this.clothes.push(newData1);
     
     console.log("Clothes", this.clothes);
@@ -76,13 +76,13 @@ export class AccordionComponent implements OnInit {
   asscessories = [
     {
       name: 'Mobile',
-      date: '10/7/2018'
+      date: '10/07/2018'
     }
   ];
   Addasscessories: Array <any> = this.asscessories;
   addAsscessories(newAsscess,newDate){
     console.log("Asscess", this.asscessories);
-    newDate = moment(newDate, "DD-MM-YYYY").format('DD/MM/YYYY')
+    newDate = moment(newDate).format('DD/MM/YYYY')
     var newData2 = {
       name: newAsscess,
       date: newDate
